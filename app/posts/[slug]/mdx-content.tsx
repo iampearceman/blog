@@ -2,6 +2,7 @@
 
 import { MDXRemote } from 'next-mdx-remote'
 import React from 'react'
+import { MDXComponentProvider } from '../../components/MDXProvider'
 
 const components = {
   InfoBox: ({ children }: { children: React.ReactNode }) => (
@@ -13,9 +14,11 @@ const components = {
 
 export function MDXContent({ source }: { source: any }) {
   return (
-    <MDXRemote 
-      {...source}
+    <MDXComponentProvider>
+      <MDXRemote
+        {...source}
       components={components}
-    />
+      />
+    </MDXComponentProvider>
   )
 }

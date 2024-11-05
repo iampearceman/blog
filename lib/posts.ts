@@ -67,7 +67,7 @@ export async function getPostBySlug(slug: string): Promise<MDXPost | null> {
     // Serialize the content
     const mdxSource = await serialize(content, {
       mdxOptions: {
-        remarkPlugins: [remarkGfm],
+        remarkPlugins: [remarkGfm as any],
         rehypePlugins: [rehypeHighlight as any],
       },
       parseFrontmatter: true,

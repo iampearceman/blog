@@ -15,21 +15,90 @@ This is my first post written in MDX. I'm excited to share my thoughts and exper
 - **Markdown support** - Write content in familiar Markdown syntax
 - **Code highlighting** - Share code snippets with syntax highlighting
 - **Custom components** - Embed React components directly in your posts
+- **Interactive elements** - Add dynamic content
+- **Rich formatting** - Tables, quotes, and more
 
-### Example Code Block
+### Code Examples
 
-```typescript
-function greet(name: string) {
-  return `Hello, ${name}!`
-}
+Here's a React component:
+
+```tsx
+const Counter = () => {
+  const [count, setCount] = useState(0);
+  
+  return (
+    <div className="p-4 border rounded">
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </div>
+  );
+};
 ```
 
-### Custom Component Example
+### Rich Formatting
 
-You can import and use custom React components directly in your MDX:
+> "MDX combines the best of Markdown and JSX" 
+> — A wise developer
 
-<InfoBox>
-  This is a custom component rendered inside MDX!
-</InfoBox>
+#### Tables
+
+| Feature | Support | Notes |
+|---------|---------|-------|
+| Markdown | ✅ | Full support |
+| JSX | ✅ | Import components |
+| Styling | ✅ | CSS/Tailwind |
+
+### Interactive Examples
+
+<Tabs>
+  <Tab label="Preview">
+    See your content live as you write!
+  </Tab>
+  <Tab label="Code">
+    Edit your MDX directly
+  </Tab>
+</Tabs>
+
+### Dynamic Content
+
+<DateTime format="MMMM Do, YYYY" />
+
+### Callouts
+
+<Alert type="info">
+  Did you know? MDX lets you use React components inline with your markdown!
+</Alert>
+
+<Alert type="warning">
+  Remember to import any components you want to use.
+</Alert>
+
+### Image Gallery
+
+<ImageGrid>
+  <Image src="/example1.jpg" alt="Example 1" />
+  <Image src="/example2.jpg" alt="Example 2" />
+  <Image src="/example3.jpg" alt="Example 3" />
+</ImageGrid>
+
+### Math Equations
+
+You can include math equations using LaTeX syntax:
+
+<Math>
+  E = mc^2
+</Math>
+
+### Interactive Charts
+
+<Chart
+  data={[
+    { month: 'Jan', value: 100 },
+    { month: 'Feb', value: 120 },
+    { month: 'Mar', value: 150 }
+  ]}
+/>
 
 Stay tuned for more posts coming soon!

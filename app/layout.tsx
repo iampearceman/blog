@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from './components/Navbar'
+
 export const metadata: Metadata = {
   title: 'Emil\'s Blog',
   description: 'A blog built with Next.js and MDX',
@@ -13,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body 
+      <body
         className="max-w-[1000px] mx-auto"
         suppressHydrationWarning={true}
       >
