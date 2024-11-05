@@ -63,10 +63,13 @@ export default async function Post({ params }: PostProps) {
   let mdxSource
   try {
     if (typeof post.content === 'string') {
-      // If content is a string, serialize it
-      mdxSource = await serialize(post.content)
+      mdxSource = await serialize(post.content, {
+        parseFrontmatter: false,
+        mdxOptions: {
+          development: process.env.NODE_ENV === 'development'
+        }
+      })
     } else if (post.content?.compiledSource) {
-      // If content is already compiled, use it directly
       mdxSource = post.content
     } else {
       throw new Error('Invalid content format')
@@ -77,7 +80,7 @@ export default async function Post({ params }: PostProps) {
       <div className="max-w-4xl mx-auto px-4 py-12">
         <h1 className="text-3xl font-bold text-red-500">Error processing content</h1>
         <pre className="mt-4 p-4 bg-gray-800 rounded overflow-auto">
-          {JSON.stringify(error, null, 2)}
+          {error instanceof Error ? error.message : 'Unknown error occurred'}
         </pre>
       </div>
     )
@@ -107,7 +110,7 @@ export default async function Post({ params }: PostProps) {
           )}
         </header>
         <div className="mt-8 prose-pre:bg-gray-800 prose-headings:text-white/90 prose-a:text-blue-400 hover:prose-a:text-blue-300">
-          <MDXContent source={mdxSource} />
+          {mdxSource && <MDXContent source={mdxSource} />}
         </div>
       </article>
     </div>

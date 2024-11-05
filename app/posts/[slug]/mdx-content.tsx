@@ -2,7 +2,8 @@
 
 import { MDXRemote } from 'next-mdx-remote'
 import React from 'react'
-import { MDXComponentProvider } from '../../components/MDXProvider'
+import { MDXComponentProvider } from '../../../components/MDXProvider'
+import GitHubComments from '../../../components/mdx/Comments'
 
 const components = {
   InfoBox: ({ children }: { children: React.ReactNode }) => (
@@ -18,6 +19,10 @@ export function MDXContent({ source }: { source: any }) {
       <MDXRemote
         {...source}
       components={components}
+      />
+      <GitHubComments 
+        owner="iampearceman"
+        repo="blog"
       />
     </MDXComponentProvider>
   )

@@ -6,6 +6,7 @@ import { Image } from './mdx/Image';
 import { ImageGrid } from './mdx/ImageGrid';
 import { Math } from './mdx/Math';
 import { Chart } from './mdx/Chart';
+import Comments from './mdx/Comments';
 
 const components = {
   Tab,
@@ -16,6 +17,7 @@ const components = {
   ImageGrid,
   Math,
   Chart,
+  Comments,
 };
 
 export function MDXComponentProvider({ children }) {
